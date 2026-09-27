@@ -1,0 +1,255 @@
+/* Login A3 — derivado de los tokens de EduCore-3A (crema / Newsreader / mono).
+   Dos columnas: panel de marca a la izquierda, formulario a la derecha. */
+
+.log-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  min-height: 100vh;
+  text-align: left;
+  color: var(--ink);
+}
+
+/* ── Panel de marca ──────────────────────────────────────── */
+.log-brand {
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 48px clamp(28px, 5vw, 72px);
+  min-width: 0;
+}
+
+.log-logo {
+  font-family: 'Newsreader', serif;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.log-logo-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.log-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--accent-soft);
+  text-transform: uppercase;
+}
+
+.log-headline {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(38px, 4.4vw, 64px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -2px;
+  color: var(--paper);
+  text-wrap: balance;
+}
+
+.log-headline em {
+  font-style: italic;
+  color: var(--accent-soft);
+}
+
+.log-stat {
+  margin-top: auto;
+  border-top: 1px solid rgba(253, 248, 240, 0.2);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.log-stat-value {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.9;
+  letter-spacing: -3px;
+  color: var(--yellow);
+}
+
+.log-stat-text {
+  font-family: 'Newsreader', serif;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--paper);
+  max-width: 420px;
+}
+
+.log-stat-note {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* ── Formulario ──────────────────────────────────────────── */
+.log-form-side {
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(30, 41, 59, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px clamp(24px, 4vw, 64px);
+  min-width: 0;
+}
+
+.log-form {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.log-form-title {
+  font-family: 'Newsreader', serif;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -1.2px;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.log-form-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}
+
+.log-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.log-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+}
+
+.log-input {
+  border: 2px solid var(--ink);
+  background: #fff;
+  padding: 13px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+.log-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.log-submit {
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 6px 6px 0 #000;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.log-submit:hover {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+}
+
+.log-submit:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 #000;
+}
+
+.log-back {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--ink-mute);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.log-back:hover {
+  color: var(--accent);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .log-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .log-brand {
+    gap: 18px;
+    padding: 28px 24px 32px;
+    min-height: 0;
+  }
+
+  .log-headline {
+    font-size: 34px;
+    letter-spacing: -1.2px;
+  }
+
+  .log-stat {
+    margin-top: 8px;
+    padding-top: 18px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .log-stat-value {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .log-stat-text {
+    font-size: 17px;
+  }
+
+  .log-stat-note {
+    flex-basis: 100%;
+  }
+
+  .log-form-side {
+    padding: 36px 24px 48px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .log-form-title {
+    font-size: 32px;
+  }
+
+  .log-submit {
+    box-shadow: 4px 4px 0 #000;
+  }
+}

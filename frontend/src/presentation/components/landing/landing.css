@@ -1,0 +1,896 @@
+/* EduCore landing — editorial/magazine style
+   Tokens y fondo global: src/index.css (no los dupliques aquí). */
+
+/* Reset */
+.mag-root,
+.mag-root * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mag-root {
+  background: var(--paper);
+  background-image: radial-gradient(rgba(30, 41, 59, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}
+/* Grid children should shrink — but inline text spans must keep natural width */
+.mag-cost > *,
+.mag-cost-head,
+.mag-receipt,
+.mag-cost-rule,
+.mag-tree > *,
+.mag-tree-col,
+.mag-step,
+.mag-roles > *,
+.mag-role,
+.mag-security-grid > *,
+.mag-security-item,
+.mag-arch,
+.mag-arch-tenants > *,
+.mag-arch-tenant,
+.mag-arch-schemas > *,
+.mag-arch-schema,
+.mag-arch-row,
+.mag-arch-db,
+.mag-receipt-row,
+.mag-receipt-row-main,
+.mag-band {
+  min-width: 0;
+}
+
+.mag-serif { font-family: 'Newsreader', serif; }
+.mag-mono { font-family: 'IBM Plex Mono', monospace; }
+
+.mag-px { padding-left: 72px; padding-right: 72px; }
+
+/* Hero typography */
+.h-hero {
+  font-family: 'Newsreader', serif;
+  font-size: 104px;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -3.5px;
+  max-width: 1040px;
+  text-wrap: balance;
+  color: var(--ink);
+}
+.h-sec {
+  font-family: 'Newsreader', serif;
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  color: inherit;
+}
+.h-cta {
+  font-family: 'Newsreader', serif;
+  font-size: 72px;
+  font-weight: 500;
+  letter-spacing: -2.5px;
+  line-height: 1;
+  color: inherit;
+}
+.big {
+  font-family: 'Newsreader', serif;
+  font-size: 260px;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -12px;
+  color: var(--accent);
+}
+.total {
+  font-family: 'Newsreader', serif;
+  font-size: 88px;
+  line-height: 1;
+  letter-spacing: -3px;
+  color: var(--yellow);
+}
+
+/* Header */
+.mag-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 32px;
+  border-bottom: 1px solid var(--ink);
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  background-image: radial-gradient(rgba(30, 41, 59, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  z-index: 100;
+}
+.mag-header-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  flex: 0 0 auto;
+}
+.mag-logo {
+  font-family: 'Newsreader', serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.mag-tagline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.mag-nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--ink);
+  flex: 0 1 auto;
+}
+.mag-nav-link {
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--ink);
+  text-decoration: none;
+}
+.mag-nav-link:hover { color: var(--accent); }
+.mag-nav-cta {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+/* Hamburger (hidden on desktop) */
+.mag-burger {
+  display: none;
+  background: none;
+  border: 2px solid var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+/* Mobile drawer */
+.mag-drawer {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+  padding: 8px 22px 22px;
+  z-index: 99;
+}
+.mag-drawer.open { display: block; }
+.mag-drawer-link {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.mag-drawer-link:last-child { border-bottom: none; }
+.mag-drawer-cta {
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* CTA buttons */
+.mag-cta-primary {
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  border: none;
+  font-family: inherit;
+}
+.mag-cta-primary:hover { background: var(--accent-deep); }
+.mag-cta-lg {
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px 26px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  border: none;
+  font-family: inherit;
+}
+.mag-cta-lg:hover { background: var(--accent-deep); }
+.mag-cta-outline {
+  border: 2px solid var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+.mag-cta-outline:hover { background: var(--ink); color: var(--paper); }
+.mag-cta-paper {
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px 26px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  border: none;
+  font-family: inherit;
+}
+.mag-cta-paper:hover { background: #fff; }
+.mag-cta-line {
+  border: 2px solid var(--paper);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  background: transparent;
+  color: var(--paper);
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.mag-cta-line:hover { background: rgba(253, 248, 240, 0.12); }
+/* Los CTAs también se usan como <Link>; heredan el mismo look que el <button>. */
+a.mag-cta-primary,
+a.mag-cta-lg,
+a.mag-cta-outline,
+a.mag-cta-paper,
+a.mag-cta-line {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Hero */
+.mag-hero {
+  padding: 96px 72px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.mag-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+}
+.mag-italic { font-style: italic; color: var(--accent); }
+.mag-hero-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+}
+.mag-lede {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 600px;
+  text-wrap: pretty;
+}
+.mag-hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Stat band (69,4%) */
+.mag-band {
+  margin-top: 88px;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 56px;
+  padding: 48px 72px;
+}
+.mag-band-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 380px;
+  padding: 32px 0;
+}
+.mag-band-headline {
+  font-family: 'Newsreader', serif;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.mag-band-note { font-size: 15px; color: var(--ink-mute); line-height: 1.6; }
+
+/* Chapter header layout */
+.mag-chapter {
+  padding: 120px 72px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: baseline;
+  border-top: 1px solid var(--ink);
+}
+.mag-chapter-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+.mag-chapter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* Problem tree (3 cols) */
+.mag-tree {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  border: 2px solid var(--ink);
+}
+.mag-tree-col {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mag-tree-col + .mag-tree-col { border-left: 2px solid var(--ink); }
+.mag-tree-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--ink-mute);
+}
+.mag-tree-mid {
+  background: var(--ink);
+  color: var(--paper);
+  justify-content: center;
+}
+.mag-tree-mid-tag { color: var(--accent-soft); }
+.mag-tree-mid-text {
+  font-family: 'Newsreader', serif;
+  font-size: 32px;
+  line-height: 1.15;
+}
+.mag-tree-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.mag-tree-list-item {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.mag-tree-list-item:last-child { border-bottom: none; padding-bottom: 0; }
+.mag-tree-mono {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+}
+
+/* Steps (5 rows) */
+.mag-steps {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--ink);
+}
+.mag-step {
+  display: grid;
+  grid-template-columns: 120px 320px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.25);
+  align-items: baseline;
+}
+.mag-step:last-child { border-bottom: 2px solid var(--ink); }
+.mag-step-num {
+  font-family: 'Newsreader', serif;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--accent);
+}
+.mag-step-num.last { color: var(--green); }
+.mag-step-title {
+  font-family: 'Newsreader', serif;
+  font-size: 28px;
+  color: var(--ink);
+}
+.mag-step-desc {
+  font-size: 16px;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}
+
+/* Roles (4 cols) */
+.mag-roles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.mag-role {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 3px solid var(--ink);
+  padding-top: 16px;
+}
+.mag-role-title {
+  font-family: 'Newsreader', serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+.mag-role-desc {
+  font-size: 15px;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}
+
+/* Cost split section */
+.mag-cost {
+  padding: 120px 72px;
+  border-top: 3px solid #000;
+  background: var(--paper-warm);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 620px;
+  gap: 72px;
+  align-items: start;
+}
+.mag-cost-head {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+.mag-cost-rule {
+  margin-top: 16px;
+  border: 3px solid #000;
+  background: var(--paper);
+  padding: 24px 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.mag-cost-rule-num { font-size: 32px; font-weight: 600; }
+.mag-cost-rule-op { font-size: 24px; color: var(--ink-mute); }
+.mag-cost-rule-eq { color: var(--green); }
+.mag-cost-rule-cap {
+  flex-basis: 100%;
+  font-size: 12px;
+  color: var(--ink-mute);
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+/* Receipt card */
+.mag-receipt {
+  background: var(--paper);
+  border: 3px solid #000;
+  box-shadow: 12px 12px 0 #000;
+  font-family: 'IBM Plex Mono', monospace;
+  display: flex;
+  flex-direction: column;
+}
+.mag-receipt-head {
+  padding: 24px 28px;
+  border-bottom: 3px dashed #000;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.mag-receipt-rows {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  font-size: 15px;
+}
+.mag-receipt-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mag-receipt-row-main {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.mag-receipt-row-label { white-space: nowrap; }
+.mag-receipt-dots {
+  flex: 1;
+  border-bottom: 2px dotted #94a3b8;
+}
+.mag-receipt-row-val {
+  font-size: 26px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.mag-receipt-row-note {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+.mag-receipt-foot {
+  padding: 28px;
+  border-top: 3px solid #000;
+  background: #000;
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mag-receipt-foot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.mag-receipt-foot-tag {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+.mag-receipt-foot-note {
+  font-size: 12px;
+  color: var(--slate-soft);
+  text-align: right;
+}
+
+/* Security section (dark) */
+.mag-security {
+  padding: 120px 72px;
+  background: var(--slate);
+  color: #F1F5F9;
+  display: grid;
+  grid-template-columns: 1fr 540px;
+  gap: 80px;
+  align-items: center;
+}
+.mag-security-head {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.mag-security-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--accent-soft);
+}
+.mag-security-text {
+  font-size: 17px;
+  color: var(--slate-soft);
+  line-height: 1.7;
+  max-width: 520px;
+}
+.mag-security-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 40px;
+  margin-top: 8px;
+}
+.mag-security-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid rgba(241, 245, 249, 0.25);
+  padding-top: 14px;
+}
+.mag-security-item-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+.mag-security-item-desc {
+  font-size: 14px;
+  color: var(--slate-soft);
+  line-height: 1.6;
+}
+
+/* Architecture diagram */
+.mag-arch {
+  border: 2px solid rgba(241, 245, 249, 0.3);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+}
+.mag-arch-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--slate-soft);
+}
+.mag-arch-tenants {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  font-size: 11px;
+  text-align: center;
+}
+.mag-arch-tenant {
+  border: 1px solid rgba(241, 245, 249, 0.3);
+  padding: 10px 4px;
+  color: var(--slate-soft);
+}
+.mag-arch-tenant.active {
+  border-color: var(--accent-soft);
+  color: var(--accent-soft);
+}
+.mag-arch-arrow {
+  text-align: center;
+  color: #64748B;
+}
+.mag-arch-row {
+  background: var(--slate-mid);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--paper);
+}
+.mag-arch-row-mute { color: var(--slate-soft); }
+.mag-arch-db {
+  border: 2px solid var(--green-bright);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--green-bright);
+}
+.mag-arch-schemas {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 11px;
+}
+.mag-arch-schema {
+  background: var(--paper);
+  color: var(--slate);
+  padding: 6px 10px;
+}
+.mag-arch-schema.empty {
+  background: transparent;
+  border: 1px solid rgba(241, 245, 249, 0.3);
+  color: var(--slate-soft);
+  padding: 5px 10px;
+}
+
+/* Pilot section */
+.mag-pilot {
+  padding: 120px 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.mag-photo {
+  height: 480px;
+  border: 3px solid #000;
+  background: #E7DCC8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+.mag-pilot-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mag-pilot-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+/* FAQ */
+.mag-faq-wrap {
+  padding: 120px 72px;
+  border-top: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+}
+.mag-faq {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--ink);
+}
+.mag-faq-q {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.25);
+}
+.mag-faq-q:last-child { border-bottom: 2px solid var(--ink); }
+.mag-faq-q-text {
+  font-family: 'Newsreader', serif;
+  font-size: 26px;
+  color: var(--ink);
+}
+.mag-faq-a {
+  font-size: 16px;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}
+
+/* Final CTA */
+.mag-final-cta {
+  padding: 112px 72px;
+  background: var(--accent);
+  color: var(--paper);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 48px;
+}
+.mag-final-ctas {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Footer */
+.mag-footer {
+  padding: 24px 72px;
+  background: #000;
+  color: var(--slate-soft);
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ============================================ */
+/* Responsive — Tablet ≤ 1200px */
+/* ============================================ */
+@media (max-width: 1200px) {
+  .mag-nav { display: none; }
+  .mag-nav-cta { display: none; }
+  .mag-burger { display: block; }
+  .mag-header { padding: 14px 32px; }
+  .h-hero { font-size: 80px; letter-spacing: -2.5px; }
+  .big { font-size: 180px; letter-spacing: -8px; }
+  .mag-tree,
+  .mag-cost,
+  .mag-security,
+  .mag-pilot {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 56px;
+  }
+  .mag-step { grid-template-columns: 80px 1fr; }
+  .mag-step-desc { grid-column: 2; }
+  .mag-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mag-final-cta { flex-direction: column; align-items: flex-start; }
+  .mag-band { padding: 40px 32px; }
+  .mag-hero,
+  .mag-chapter,
+  .mag-cost,
+  .mag-security,
+  .mag-pilot,
+  .mag-faq-wrap,
+  .mag-final-cta {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .mag-chapter { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .mag-faq-wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .mag-security-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ============================================ */
+/* Responsive — Tablet small ≤ 900px */
+/* ============================================ */
+@media (max-width: 900px) {
+  .mag-hero-row,
+  .mag-band,
+  .mag-chapter,
+  .mag-faq-q {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .mag-band { padding: 32px; }
+  .mag-tree { grid-template-columns: 1fr; }
+  .mag-tree-col + .mag-tree-col { border-left: none; border-top: 2px solid var(--ink); }
+  .h-sec { font-size: 40px; }
+  .h-cta { font-size: 52px; }
+  .total { font-size: 60px; }
+  .mag-photo { height: 320px; }
+  .mag-receipt { box-shadow: 8px 8px 0 #000; }
+}
+
+/* ============================================ */
+/* Responsive — Mobile ≤ 600px */
+/* ============================================ */
+@media (max-width: 600px) {
+  .mag-px,
+  .mag-header,
+  .mag-hero,
+  .mag-chapter,
+  .mag-cost,
+  .mag-security,
+  .mag-pilot,
+  .mag-faq-wrap,
+  .mag-final-cta,
+  .mag-footer {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  .mag-band { padding: 24px 22px; }
+  .h-hero { font-size: 44px; letter-spacing: -1.5px; }
+  .big { font-size: 100px; letter-spacing: -4px; }
+  .mag-roles,
+  .mag-security-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .mag-step {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .mag-step-desc { grid-column: auto; }
+  .h-sec { font-size: 30px; letter-spacing: -1px; }
+  .h-cta { font-size: 36px; letter-spacing: -1.5px; }
+  .mag-tagline { display: none; }
+  .mag-header-brand { gap: 0; }
+  .mag-cta-lg,
+  .mag-cta-outline,
+  .mag-cta-paper,
+  .mag-cta-line {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+  .mag-receipt-row-val { font-size: 22px; }
+  .mag-photo { height: 280px; }
+  .mag-tree-col { padding: 22px; }
+  .mag-roles { gap: 20px; }
+  .mag-receipt { box-shadow: 6px 6px 0 #000; }
+  .mag-cost-rule { padding: 16px 18px; gap: 10px; }
+  .mag-cost-rule-num { font-size: 24px; }
+  .mag-cost-rule-op { font-size: 18px; }
+  .total { font-size: 56px; letter-spacing: -2px; }
+  .h-hero em { word-break: keep-all; }
+  .mag-receipt-head { padding: 18px 20px; }
+  .mag-receipt-rows { padding: 18px 20px; }
+  .mag-receipt-foot { padding: 20px; }
+}

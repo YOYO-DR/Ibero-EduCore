@@ -1,0 +1,129 @@
+volumes:
+  educore_local_postgres_data: {}
+  educore_local_postgres_data_backups: {}
+  educore_local_redis_data: {}
+
+services:
+  django: &django
+    build:
+      context: ./backend
+      dockerfile: ./compose/local/django/Dockerfile
+    image: educore_local_django
+    container_name: educore_local_django
+    depends_on:
+      - pgbouncer
+      - redis
+    volumes:
+      - /app/.venv
+      - ./backend:/app:z
+    env_file:
+      - ./.env.local
+    ports:
+      - '8002:8002'
+    command: /start
+    environment:
+      - PORT=8002
+
+  postgres:
+    build:
+      context: ./backend
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: educore_production_postgres
+    container_name: educore_local_postgres
+    volumes:
+      - educore_local_postgres_data:/var/lib/postgresql/18/docker
+      - educore_local_postgres_data_backups:/backups
+    env_file:
+      - ./.env.local
+
+  pgbouncer:
+    build:
+      context: ./backend
+      dockerfile: ./compose/production/pgbouncer/Dockerfile
+    image: educore_local_pgbouncer
+    container_name: educore_local_pgbouncer
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    env_file:
+      - ./.env.local
+    ports:
+      - '6432:6432'
+
+  redis:
+    image: docker.io/redis:7.2
+    container_name: educore_local_redis
+    volumes:
+      - educore_local_redis_data:/data
+
+  celeryworker:
+    <<: *django
+    image: educore_local_celeryworker
+    container_name: educore_local_celeryworker
+    depends_on:
+      - pgbouncer
+      - redis
+    ports: []
+    command: /start-celeryworker
+    environment:
+      - PORT=8002
+
+  celerybeat:
+    <<: *django
+    image: educore_local_celerybeat
+    container_name: educore_local_celerybeat
+    depends_on:
+      - pgbouncer
+      - redis
+    ports: []
+    command: /start-celerybeat
+    environment:
+      - PORT=8002
+
+  flower:
+    <<: *django
+    image: educore_local_flower
+    container_name: educore_local_flower
+    depends_on:
+      - pgbouncer
+      - redis
+    ports:
+      - '5555:5555'
+    command: /start-flower
+    environment:
+      - PORT=8002
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./compose/local/Dockerfile
+    image: educore_local_frontend
+    container_name: educore_local_frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    env_file:
+      - ./frontend/.env
+    ports:
+      - '5173:5173'
+    depends_on:
+      - django
+    restart: unless-stopped
+
+  # Segundo frontend (estilo A2). Mismo patrón que `frontend`, en el puerto 5174.
+  frontend-a2:
+    build:
+      context: ./frontend-A2
+      dockerfile: ./compose/local/Dockerfile
+    image: educore_local_frontend_a2
+    container_name: educore_local_frontend_a2
+    volumes:
+      - ./frontend-A2:/app
+      - /app/node_modules
+    env_file:
+      - ./frontend-A2/.env
+    ports:
+      - '5174:5174'
+    depends_on:
+      - django
+    restart: unless-stopped

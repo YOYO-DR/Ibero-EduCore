@@ -1,0 +1,60 @@
+/* Tokens globales de EduCore A2 (frontend oscuro).
+   Un solo origen para landing, admin y login de A2. */
+:root {
+  /* Superficies */
+  --bg: #0a0e1a;
+  --bg-2: #111827;
+  --panel: #1a2235;
+  --panel-2: #162033;
+  --panel-3: #1c2840;
+  --side: #0b1222;
+  --input: #0f172a;
+  --border: #2a3650;
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-mid: #334155;
+  --border-dark: #1e293b;
+
+  /* Texto */
+  --text: #f1f5f9;
+  --text-2: #e2e8f0;
+  --text-mute: #94a3b8;
+  --text-mute-2: #cbd5e1;
+  --text-dim: #64748b;
+
+  /* Acentos */
+  --blue: #3b82f6;
+  --blue-soft: #93c5fd;
+  --blue-deep: #1d4ed8;
+  --sky: #0ea5e9;
+  --sky-soft: #38bdf8;
+  --sky-soft-2: #7dd3fc;
+  --sky-deep: #0284c7;
+  --green: #10b981;
+  --green-2: #22c55e;
+  --green-3: #4ade80;
+  --amber: #f59e0b;
+  --amber-2: #fbbf24;
+  --amber-3: #f59e0b;
+  --purple: #a78bfa;
+  --red: #ef4444;
+  --red-2: #f87171;
+
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}

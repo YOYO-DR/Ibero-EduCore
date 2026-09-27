@@ -1,0 +1,47 @@
+/* Tokens globales de EduCore. Un solo origen para landing, admin y login
+   (CADA vista se compone con estos; no los dupliques en sus CSS). */
+:root {
+  --paper: #fdf8f0;
+  --paper-warm: #f6eedf;
+  --ink: #1e293b;
+  --ink-soft: #334155;
+  --ink-mute: #475569;
+  --accent: #c2410c;
+  --accent-soft: #fdba74;
+  --accent-deep: #9a3412;
+  --green: #166534;
+  --green-bright: #4ade80;
+  --slate: #0f172a;
+  --slate-mid: #1e293b;
+  --slate-soft: #cbd5e1;
+  --yellow: #fbbf24;
+  --rule: rgba(30, 41, 59, 0.2);
+
+  /* Usados por A2 (frontend-A2) cuando se comparte este archivo. */
+  --navy: #0a0e1a;
+  --navy-2: #111827;
+  --panel: #162033;
+  --panel-border: #2a3650;
+  --sky: #0ea5e9;
+  --sky-soft: #38bdf8;
+  --blue: #3b82f6;
+
+  color-scheme: light;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduCore · A2-Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0F172A;font-family:'Inter',sans-serif;color:#F1F5F9;-webkit-font-smoothing:antialiased}
+a{color:#38BDF8;text-decoration:none}
+a:hover{color:#7DD3FC}
+input{font:inherit;color:inherit}
+input::placeholder{color:#64748B}
+input:focus{outline:1px solid #0EA5E9;outline-offset:0}
+.hv1{transition:background .15s,border-color .15s}.hv1:hover{background:#131D31 !important}
+.hv2{transition:background .15s,border-color .15s}.hv2:hover{border-color:#3B4A66 !important}
+.hv3{transition:background .15s,border-color .15s}.hv3:hover{background:#1E293B !important}
+.hv4{transition:background .15s,border-color .15s}.hv4:hover{background:#0284C7 !important}
+.hv5{transition:background .15s,border-color .15s}.hv5:hover{background:rgba(14,165,233,.1) !important}
+.hv6{transition:background .15s,border-color .15s}.hv6:hover{background:#1A2539 !important}
+</style>
+</head>
+<body>
+<div style="display:grid;grid-template-columns:clamp(210px,18vw,260px) minmax(0,1fr);min-height:100vh;background:#0F172A">
+
+<aside style="background:#0B1222;border-right:1px solid #1E293B;display:flex;flex-direction:column;padding:24px 12px">
+<div style="display:flex;align-items:center;gap:12px;padding:0 16px 10px">
+<span style="width:32px;height:32px;border-radius:8px;background:#0EA5E9;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="2"></circle><ellipse cx="12" cy="12" rx="9" ry="4"></ellipse><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"></ellipse><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"></ellipse></svg></span>
+<span style="font-size:20px;font-weight:700;letter-spacing:-.3px">EduCore</span>
+</div>
+<div style="padding:0 16px 20px 60px"><span style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#38BDF8;border:1px solid rgba(14,165,233,.45);background:rgba(14,165,233,.1);border-radius:4px;padding:3px 7px">A2-ADMIN</span></div>
+<nav style="display:flex;flex-direction:column;gap:4px">
+<div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-radius:6px;background:#15233B;border-left:3px solid #0EA5E9;font-size:14px;font-weight:600;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:#38BDF8;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M3 3v18h18"></path><path d="M8 17V11"></path><path d="M13 17V7"></path><path d="M18 17v-4"></path></svg>Dashboard</div>
+<div class="hv1" style="display:flex;align-items:center;gap:14px;padding:11px 16px 11px 19px;border-radius:6px;font-size:14px;color:#CBD5E1;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M9 21v-5h6v5"></path></svg>Estructura Institucional</div>
+<div class="hv1" style="display:flex;align-items:center;gap:14px;padding:11px 16px 11px 19px;border-radius:6px;font-size:14px;color:#CBD5E1;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14.8c1.8.7 3 2.5 3.5 5.2"></path></svg>Estudiantes / SIMAT</div>
+<div class="hv1" style="display:flex;align-items:center;gap:14px;padding:11px 16px 11px 19px;border-radius:6px;font-size:14px;color:#CBD5E1;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M4 20l1-4L16 5l3 3L8 19z"></path><path d="M14 7l3 3"></path></svg>Calificaciones SIEE</div>
+<div class="hv1" style="display:flex;align-items:center;gap:14px;padding:11px 16px 11px 19px;border-radius:6px;font-size:14px;color:#CBD5E1;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M6 3h9l4 4v14H6z"></path><path d="M9 11h7"></path><path d="M9 15h7"></path></svg>Generador de Boletines</div>
+<div class="hv1" style="display:flex;align-items:center;gap:14px;padding:11px 16px 11px 19px;border-radius:6px;font-size:14px;color:#CBD5E1;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg>Configuración Tenant</div>
+</nav>
+</aside>
+
+<div style="display:flex;flex-direction:column;min-width:0;overflow-x:clip">
+<header style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px clamp(20px,2.3vw,32px);border-bottom:1px solid #1E293B;flex-wrap:wrap">
+<div class="hv2" style="display:flex;align-items:center;gap:10px;background:#141E31;border:1px solid #2A3650;border-radius:6px;padding:7px 12px;cursor:pointer;min-width:0;max-width:100%">
+<svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#CBD5E1;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M9 21v-5h6v5"></path></svg>
+<span style="font-size:13px;font-weight:500;white-space:nowrap">IE INCODELCA – Sede Principal</span>
+<span style="font-size:12px;color:#64748B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">incodelca.educore.co</span>
+<svg width="14" height="14" viewBox="0 0 24 24" style="fill:none;stroke:#CBD5E1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M6 9l6 6 6-6"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:16px 24px;flex-wrap:wrap;margin-left:auto">
+<span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:#CBD5E1;background:#122033;border:1px solid #1F3B3A;border-radius:999px;padding:4px 10px;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:#22C55E"></span>PWA Activa / Modo Optimizado</span>
+<div style="display:flex;align-items:center;gap:12px">
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px"><span style="font-size:14px;font-weight:600;white-space:nowrap">Ronald García</span><span style="font-size:11px;color:#94A3B8;white-space:nowrap">Docente / Scrum Developer</span></div>
+<span style="width:36px;height:36px;border-radius:50%;background:#334155;border:2px solid #475569;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0">RG</span>
+</div>
+</div>
+</header>
+
+<main style="padding:36px clamp(20px,2.3vw,32px) 48px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<h1 style="font-size:clamp(22px,2vw,26px);font-weight:700;letter-spacing:-.3px;line-height:1.25">Bienvenido, Ronald García — Periodo Lectivo 3 (2026)</h1>
+<p style="font-size:14px;color:#CBD5E1">Panel de control académico unificado y planilla SIEE.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+<div style="background:#162033;border:1px solid #2A3650;border-radius:8px;padding:clamp(18px,1.8vw,24px);display:flex;flex-direction:column;gap:18px;min-width:0">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:14px;color:#CBD5E1">Cursos Asignados</span><svg width="20" height="20" viewBox="0 0 24 24" style="fill:none;stroke:#94A3B8;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M2 5h6a4 4 0 0 1 4 4v11a3 3 0 0 0-3-3H2z"></path><path d="M22 5h-6a4 4 0 0 0-4 4v11a3 3 0 0 1 3-3h7z"></path></svg></div>
+<span style="font-size:28px;font-weight:700">4</span>
+<span style="font-size:11px;color:#64748B;padding-top:6px">Grados: 1001, 1002, 1101, 1102</span>
+</div>
+<div style="background:#162033;border:1px solid #2A3650;border-radius:8px;padding:clamp(18px,1.8vw,24px);display:flex;flex-direction:column;gap:18px;min-width:0">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:14px;color:#CBD5E1">Estudiantes Totales</span><svg width="20" height="20" viewBox="0 0 24 24" style="fill:none;stroke:#94A3B8;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14.8c1.8.7 3 2.5 3.5 5.2"></path></svg></div>
+<span style="font-size:28px;font-weight:700">118</span>
+<span style="font-size:11px;color:#64748B;padding-top:6px">Estudiantes matriculados activos en SIMAT</span>
+</div>
+<div style="background:#162033;border:1px solid #2A3650;border-radius:8px;padding:clamp(18px,1.8vw,24px);display:flex;flex-direction:column;gap:18px;min-width:0">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:14px;color:#CBD5E1">Estado de Calificaciones</span><svg width="20" height="20" viewBox="0 0 24 24" style="fill:none;stroke:#94A3B8;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="12" cy="12" r="9"></circle><path d="M12 12l4-4"></path></svg></div>
+<div style="display:flex;align-items:center;gap:8px 16px;flex-wrap:wrap"><span style="font-size:28px;font-weight:700">75%</span><span style="font-size:11px;font-weight:600;color:#4ADE80;border:1px solid #22C55E;border-radius:3px;padding:1px 8px">Completado</span></div>
+<span style="font-size:11px;color:#64748B;padding-top:6px">Carga de notas Periodo 3 finalizada</span>
+</div>
+</div>
+
+<section style="background:#162033;border:1px solid #2A3650;border-radius:10px;padding:clamp(18px,1.8vw,24px);display:flex;flex-direction:column;gap:20px;min-width:0">
+<div style="display:flex;flex-direction:column;gap:6px">
+<h2 style="font-size:16px;font-weight:600">Planilla de Calificaciones – Asignatura: Tecnología e Informática (Grado 1001)</h2>
+<p style="font-size:13px;color:#CBD5E1">Ingrese las calificaciones según la escala del Sistema Institucional de Evaluación de Estudiantes (SIEE).</p>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+<div style="display:flex;align-items:center;gap:8px;width:280px;max-width:100%;background:#0F172A;border:1px solid #2A3650;border-radius:4px;padding:0 12px"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#94A3B8;stroke-width:2;stroke-linecap:round;flex-shrink:0"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg><input id="q" placeholder="Buscar estudiante..." style="flex:1;min-width:0;background:transparent;border:none;padding:8px 0;font-size:13px;outline:none"></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+<span data-if="hasDirty" style="display:none;font-size:12px;color:#FBBF24"><span data-t="dirtyLabel"></span></span>
+<span data-if="savedShown" style="display:none;font-size:12px;color:#4ADE80">Cambios guardados</span>
+<div class="hv3" style="display:flex;align-items:center;gap:8px;border:1px solid #334155;border-radius:4px;padding:8px 16px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M4 20h16"></path></svg>Importar desde SIMAT (CSV)</div>
+<div id="save" class="hv4" style="display:flex;align-items:center;gap:8px;background:#0EA5E9;border:1px solid #0EA5E9;border-radius:4px;padding:8px 16px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;white-space:nowrap"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M5 3h11l3 3v15H5z"></path><path d="M8 3v5h7V3"></path><path d="M8 21v-7h8v7"></path></svg>Guardar Cambios</div>
+<div class="hv5" style="display:flex;align-items:center;gap:8px;border:1px solid #0EA5E9;border-radius:4px;padding:8px 16px;font-size:13px;font-weight:600;color:#38BDF8;cursor:pointer;white-space:nowrap"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M7 3h7l4 4v14H7z"></path><path d="M10 12h5M10 16h5"></path></svg>Generar Boletines (PDF)</div>
+</div>
+</div>
+<div style="overflow-x:auto;border-radius:6px"><div style="min-width:900px">
+<div style="display:grid;grid-template-columns:40px 32px minmax(180px,1fr) 110px 110px 110px 90px 110px;gap:14px;padding:14px 16px;background:#1C2840;font-size:11px;font-weight:500;letter-spacing:.3px;color:#CBD5E1;align-items:center">
+<span>Nº</span><span></span><span>APELLIDOS Y NOMBRES</span><span>COGNITIVO (40%)</span><span>PROCEDIMENTAL (40%)</span><span>ACTITUDINAL (20%)</span><span>DEFINITIVA</span><span>NIVEL SIEE</span>
+</div>
+<div id="rows"></div>
+</div></div>
+<div data-if="noRows" style="display:none;padding:16px;font-size:13px;color:#94A3B8">Ningún estudiante coincide con la búsqueda.</div>
+</section>
+</main>
+
+<footer style="margin-top:auto;padding:14px clamp(20px,2.3vw,32px);border-top:1px solid #1E293B;display:flex;justify-content:space-between;gap:16px;font-size:10px;color:#64748B;flex-wrap:wrap">
+<span>Aislamiento Multi-tenant: Esquema PostgreSQL Activo (tenant_incodelca)</span>
+<span>EduCore SaaS v1.0 · A2-Admin</span>
+</footer>
+</div>
+</div>
+<script>
+const BADGES = {"isSup":"<span style=\"font-size:10px;font-weight:700;letter-spacing:.3px;color:#4ADE80;border:1px solid #22C55E;border-radius:999px;padding:3px 9px\">SUPERIOR</span>","isAlto":"<span style=\"font-size:10px;font-weight:700;letter-spacing:.3px;color:#60A5FA;border:1px solid #3B82F6;border-radius:999px;padding:3px 9px\">ALTO</span>","isBas":"<span style=\"font-size:10px;font-weight:700;letter-spacing:.3px;color:#FBBF24;border:1px solid #F59E0B;border-radius:999px;padding:3px 9px\">BÁSICO</span>","isBajo":"<span style=\"font-size:10px;font-weight:700;letter-spacing:.3px;color:#F87171;background:#2A1A22;border-radius:999px;padding:4px 10px\">BAJO</span>","isNone":"<span style=\"font-size:11px;color:#64748B\">Pendiente</span>"};
+const READ_ONLY = false;
+const state = { query: '', dirty: new Set(), saved: false, rows: [
+  { id: 1, name: 'Castro Rojas, Iván', cog: '4.5', pro: '4.8', act: '5.0' },
+  { id: 2, name: 'Durán Ríos, Yoiner', cog: '4.2', pro: '4.0', act: '4.5' },
+  { id: 3, name: 'Martínez López, Camila', cog: '3.5', pro: '3.8', act: '4.0' },
+  { id: 4, name: 'Pérez Gómez, Santiago', cog: '2.8', pro: '2.5', act: '3.0' },
+  { id: 5, name: 'Rodríguez Herrera, Valentina', cog: '4.0', pro: '4.2', act: '4.8' },
+  { id: 6, name: 'Vargas Mendoza, Andrés', cog: '4.8', pro: '4.6', act: '5.0' },
+]};
+const num = v => { const n = parseFloat(String(v).replace(',', '.')); return n >= 1 && n <= 5 ? n : null; };
+function derive(r, i) {
+  const c = num(r.cog), p = num(r.pro), a = num(r.act);
+  const d = c != null && p != null && a != null ? Math.round((c*.4 + p*.4 + a*.2)*10)/10 : null;
+  const k = d == null ? 'isNone' : d >= 4.6 ? 'isSup' : d >= 4 ? 'isAlto' : d >= 3 ? 'isBas' : 'isBajo';
+  return { ...r, n: i + 1, initials: r.name.split(', ').reverse().map(w => w[0]).join(''), dNum: d, def: d == null ? '—' : d.toFixed(1), badge: BADGES[k] };
+}
+const ro = READ_ONLY ? 'readonly' : '';
+const $ = s => document.querySelector(s);
+const setIf = (name, on) => document.querySelectorAll('[data-if="'+name+'"]').forEach(el => el.style.display = on ? '' : 'none');
+const setT = (name, v) => document.querySelectorAll('[data-t="'+name+'"]').forEach(el => el.textContent = v);
+function summary() {
+  const all = state.rows.map(derive);
+  const q = state.query.trim().toLowerCase();
+  const shown = q ? all.filter(r => r.name.toLowerCase().includes(q)) : all;
+  const nd = state.dirty.size;
+  setT('dirtyLabel', nd + ' ' + (nd === 1 ? 'cambio' : 'cambios') + ' sin guardar');
+  setIf('hasDirty', nd > 0); setIf('savedShown', state.saved && nd === 0); setIf('noRows', shown.length === 0);
+  return shown;
+}
+function renderRows() { $('#rows').innerHTML = summary().map(r => `<div class="hv6" style="display:grid;grid-template-columns:40px 32px minmax(180px,1fr) 110px 110px 110px 90px 110px;gap:14px;padding:8px 16px;background:#162033;border-bottom:1px solid #26324A;align-items:center">
+<span style="font-size:12px;color:#64748B">${r.n}</span>
+<span style="width:26px;height:26px;border-radius:50%;background:#334155;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#E2E8F0">${r.initials}</span>
+<span style="font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.name}</span>
+<input value="${r.cog}" data-id="${r.id}" data-k="cog" ${ro} inputMode="decimal" style="width:72px;background:#0F172A;border:1px solid #334155;border-radius:3px;padding:6px 0;text-align:center;font-size:13px">
+<input value="${r.pro}" data-id="${r.id}" data-k="pro" ${ro} inputMode="decimal" style="width:72px;background:#0F172A;border:1px solid #334155;border-radius:3px;padding:6px 0;text-align:center;font-size:13px">
+<input value="${r.act}" data-id="${r.id}" data-k="act" ${ro} inputMode="decimal" style="width:72px;background:#0F172A;border:1px solid #334155;border-radius:3px;padding:6px 0;text-align:center;font-size:13px">
+<span style="font-size:14px;font-weight:700" data-def="${r.id}">${r.def}</span>
+<div style="display:flex" data-badge="${r.id}">${r.badge}</div>
+</div>`).join(''); }
+$('#rows').addEventListener('input', e => {
+  const el = e.target; if (!el.dataset.k) return;
+  const idx = state.rows.findIndex(x => x.id == el.dataset.id);
+  if (!/^[0-9]?([.,][0-9]?)?$/.test(el.value)) { el.value = state.rows[idx][el.dataset.k]; return; }
+  state.rows[idx][el.dataset.k] = el.value; state.dirty.add(idx); state.saved = false;
+  const d = derive(state.rows[idx], idx);
+  $('[data-def="'+d.id+'"]').textContent = d.def; $('[data-badge="'+d.id+'"]').innerHTML = d.badge;
+  summary();
+});
+$('#q').addEventListener('input', e => { state.query = e.target.value; renderRows(); });
+$('#save').addEventListener('click', () => { state.dirty.clear(); state.saved = true; summary(); });
+renderRows();
+</script>
+</body>
+</html>

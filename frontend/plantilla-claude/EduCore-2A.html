@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduCore · Gestión académica para colegios oficiales pequeños</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0e1a;font-family:'Inter',sans-serif;color:#f1f5f9;-webkit-font-smoothing:antialiased}
+a{color:#3b82f6;text-decoration:none}
+a:hover{color:#93c5fd}
+.h1,.h2,.h3,.h4{transition:background .15s,color .15s}
+.h1:hover{background:#1d4ed8 !important}
+.h2:hover{background:#fff !important}
+.h3:hover{color:#93c5fd !important}
+
+.h1,.h2,.h3{white-space:nowrap}
+.nav-links span{white-space:nowrap}
+.wrap-row{flex-wrap:wrap;gap:16px 40px}
+.foot{flex-wrap:wrap;gap:8px 24px}
+@media (max-width:1100px){
+ .nav-links{gap:20px!important}
+ .hero-h1{font-size:64px!important;letter-spacing:-2.5px!important}
+ .g5{grid-template-columns:repeat(3,1fr)!important;row-gap:40px!important}
+ .g4{grid-template-columns:repeat(2,1fr)!important}
+ .g2{grid-template-columns:1fr!important;gap:48px!important}
+}
+@media (max-width:860px){
+ .nav-links{display:none!important}
+ .g3{grid-template-columns:1fr!important}
+ .g3>*{border-right:none!important;border-bottom:1px solid rgba(255,255,255,.08)}
+ .g3>*:last-child{border-bottom:none}
+ .g5{grid-template-columns:repeat(2,1fr)!important}
+ .h-sec{font-size:36px!important;letter-spacing:-1.2px!important}
+}
+@media (max-width:640px){
+ .px{padding-left:24px!important;padding-right:24px!important}
+ .hero-h1{font-size:44px!important;letter-spacing:-1.5px!important}
+ .g4,.g5{grid-template-columns:1fr!important}
+ .g5>*{padding-right:0!important}
+ .h-sec{font-size:30px!important}
+}
+</style>
+</head>
+<body>
+<div style="max-width:1280px;margin:0 auto;background:#0a0e1a;overflow:hidden">
+<div class="px" style="display:flex;align-items:center;justify-content:space-between;padding:24px 64px">
+<span style="font-size:18px;font-weight:800;letter-spacing:-.5px">Edu<span style="color:#3b82f6">Core</span></span>
+<div class="nav-links" style="display:flex;gap:32px;align-items:center;font-size:14px;color:#94a3b8"><span>El problema</span><span>Costos</span><span>Cómo funciona</span><span>Roles</span><span>Seguridad</span></div>
+<div class="h1" style="background:#3b82f6;color:#fff;font-size:14px;font-weight:600;padding:10px 18px;border-radius:2px;cursor:pointer">Hablar con el equipo</div>
+</div>
+<div class="px" style="padding:120px 64px 96px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px">
+<div style="font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:3px;color:#94a3b8;text-transform:uppercase">Gestión académica para colegios oficiales pequeños</div>
+<h1 class="hero-h1" style="font-size:84px;font-weight:800;line-height:1;letter-spacing:-4px;max-width:1000px;text-wrap:balance">Del Excel al boletín, <span style="color:#3b82f6">sin pagar por estudiante.</span></h1>
+<p style="font-size:20px;font-weight:300;color:#94a3b8;line-height:1.6;max-width:680px;text-wrap:pretty">EduCore reúne la estructura académica, los docentes, los estudiantes y las calificaciones de cada periodo en una sola plataforma, pensada para el presupuesto de un colegio público.</p>
+<div style="display:flex;gap:12px;margin-top:8px">
+<div class="h2" style="background:#f1f5f9;color:#0a0e1a;font-size:15px;font-weight:600;padding:14px 26px;border-radius:2px;cursor:pointer">Crear mi colegio</div>
+<div class="h3" style="color:#f1f5f9;font-size:15px;font-weight:500;padding:14px 16px;cursor:pointer">Ver comparación de costos →</div>
+</div>
+</div>
+<div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)">
+<div class="px" style="padding:48px 40px 48px 64px;display:flex;flex-direction:column;gap:14px;border-right:1px solid rgba(255,255,255,.08)"><span style="font-family:'Roboto Mono',monospace;font-size:40px;font-weight:600;color:#f59e0b;letter-spacing:-1px">$2.000–9.900</span><span style="font-size:15px;color:#94a3b8;line-height:1.6">COP por estudiante al año cobran las plataformas comerciales, pensadas para colegios privados.</span></div>
+<div style="padding:48px 40px;display:flex;flex-direction:column;gap:14px;border-right:1px solid rgba(255,255,255,.08)"><span style="font-family:'Roboto Mono',monospace;font-size:40px;font-weight:600;color:#a78bfa;letter-spacing:-1px">SIMAT</span><span style="font-size:15px;color:#94a3b8;line-height:1.6">cubre la matrícula oficial, pero no la asignación docente, las notas ni los boletines.</span></div>
+<div class="px" style="padding:48px 64px 48px 40px;display:flex;flex-direction:column;gap:14px"><span style="font-family:'Roboto Mono',monospace;font-size:40px;font-weight:600;color:#ef4444;letter-spacing:-1px">69,4 %</span><span style="font-size:15px;color:#94a3b8;line-height:1.6">de las sedes educativas rurales del país carece de acceso a Internet.</span></div>
+</div>
+<div class="g2 px" style="padding:112px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:3px;color:#3b82f6;text-transform:uppercase">Costo anual · colegio de 300 estudiantes</div>
+<h2 class="h-sec" style="font-size:48px;font-weight:800;letter-spacing:-2px;line-height:1.05;text-wrap:balance">Diez colegios comparten un servidor. Cada uno paga una décima parte.</h2>
+<p style="font-size:17px;color:#94a3b8;line-height:1.7;text-wrap:pretty">En un esquema SaaS multiinquilino una sola instancia de la aplicación atiende a varias instituciones, así que el costo de infraestructura se reparte entre ellas.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;font-size:15px"><span style="font-weight:600">Plataforma B</span><span style="font-family:'Roboto Mono',monospace;color:#94a3b8">≈ USD 680</span></div><div style="height:12px;background:#1a2235;border-radius:2px"><div style="width:100%;height:100%;background:#475569;border-radius:2px"></div></div><span style="font-size:13px;color:#94a3b8">≈ USD 340 por semestre</span></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;font-size:15px"><span style="font-weight:600">Plataforma A</span><span style="font-family:'Roboto Mono',monospace;color:#94a3b8">≈ $600.000 COP</span></div><div style="height:12px;background:#1a2235;border-radius:2px"><div style="width:22%;height:100%;background:#475569;border-radius:2px"></div></div><span style="font-size:13px;color:#94a3b8">$2.000 COP por estudiante al año, plan básico</span></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;font-size:15px"><span style="font-weight:600">Servidor propio</span><span style="font-family:'Roboto Mono',monospace;color:#94a3b8">inversión alta</span></div><div style="height:12px;background:repeating-linear-gradient(90deg,#1a2235 0 8px,#243049 8px 16px);border-radius:2px"></div><span style="font-size:13px;color:#94a3b8">Equipo, energía y soporte técnico local</span></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding:24px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.35);border-radius:2px"><div style="display:flex;justify-content:space-between;font-size:15px"><span style="font-weight:700">EduCore</span><span style="font-family:'Roboto Mono',monospace;color:#3b82f6;font-weight:600">≈ USD 10</span></div><div style="height:12px;background:#1a2235;border-radius:2px"><div style="width:1.5%;min-width:6px;height:100%;background:#3b82f6;border-radius:2px"></div></div><span style="font-size:13px;color:#94a3b8">VPS compartido de ≈ USD 96 al año entre 10 colegios. Solo infraestructura.</span></div>
+</div>
+</div>
+<div class="px" style="padding:96px 64px;background:#111827;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:3px;color:#3b82f6;text-transform:uppercase">Cómo funciona</div><h2 class="h-sec" style="font-size:40px;font-weight:800;letter-spacing:-1.5px">Un colegio nuevo, configurado en cinco pasos.</h2></div>
+<div class="g5" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0">
+<div style="display:flex;flex-direction:column;gap:14px;padding-right:24px"><div style="display:flex;align-items:center;gap:10px"><span style="width:32px;height:32px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-size:13px;font-weight:600;flex-shrink:0">1</span><span style="flex:1;height:1px;background:rgba(59,130,246,.4)"></span></div><span style="font-weight:700;font-size:16px">Crear el colegio</span><span style="font-size:14px;color:#94a3b8;line-height:1.6">Subdominio, año lectivo, periodos y escala del SIEE.</span></div>
+<div style="display:flex;flex-direction:column;gap:14px;padding-right:24px"><div style="display:flex;align-items:center;gap:10px"><span style="width:32px;height:32px;border-radius:50%;background:#1e2d44;border:1px solid #3b82f6;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-size:13px;font-weight:600;flex-shrink:0">2</span><span style="flex:1;height:1px;background:rgba(59,130,246,.4)"></span></div><span style="font-weight:700;font-size:16px">Configurar la estructura</span><span style="font-size:14px;color:#94a3b8;line-height:1.6">Sedes, zonas, jornadas, áreas, asignaturas y cursos.</span></div>
+<div style="display:flex;flex-direction:column;gap:14px;padding-right:24px"><div style="display:flex;align-items:center;gap:10px"><span style="width:32px;height:32px;border-radius:50%;background:#1e2d44;border:1px solid #3b82f6;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-size:13px;font-weight:600;flex-shrink:0">3</span><span style="flex:1;height:1px;background:rgba(59,130,246,.4)"></span></div><span style="font-weight:700;font-size:16px">Registrar personas</span><span style="font-size:14px;color:#94a3b8;line-height:1.6">Docentes, coordinadores y estudiantes; CSV del SIMAT.</span></div>
+<div style="display:flex;flex-direction:column;gap:14px;padding-right:24px"><div style="display:flex;align-items:center;gap:10px"><span style="width:32px;height:32px;border-radius:50%;background:#1e2d44;border:1px solid #3b82f6;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-size:13px;font-weight:600;flex-shrink:0">4</span><span style="flex:1;height:1px;background:rgba(59,130,246,.4)"></span></div><span style="font-weight:700;font-size:16px">Cargar notas</span><span style="font-size:14px;color:#94a3b8;line-height:1.6">Por asignatura y periodo, con valoración automática.</span></div>
+<div style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;align-items:center;gap:10px"><span style="width:32px;height:32px;border-radius:50%;background:#10b981;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-size:13px;font-weight:600;flex-shrink:0;color:#0a0e1a">5</span></div><span style="font-weight:700;font-size:16px">Generar el boletín</span><span style="font-size:14px;color:#94a3b8;line-height:1.6">PDF por estudiante y consolidados por sede y zona.</span></div>
+</div>
+</div>
+<div class="px" style="padding:96px 64px;display:flex;flex-direction:column;gap:40px">
+<div class="wrap-row" style="display:flex;justify-content:space-between;align-items:flex-end"><h2 class="h-sec" style="font-size:40px;font-weight:800;letter-spacing:-1.5px;max-width:560px;line-height:1.1">Cada rol ve lo que necesita.</h2><span style="font-size:15px;color:#94a3b8">Permisos por rol en cada colegio</span></div>
+<div class="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<div style="background:#1a2235;border:1px solid rgba(255,255,255,.08);border-radius:2px;padding:28px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:2px;color:#a78bfa">RECTOR · ADMIN</span><span style="font-size:15px;line-height:1.6;color:#f1f5f9">Configura la institución, los usuarios y la escala de valoración.</span></div>
+<div style="background:#1a2235;border:1px solid rgba(255,255,255,.08);border-radius:2px;padding:28px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:2px;color:#f59e0b">COORDINADOR</span><span style="font-size:15px;line-height:1.6;color:#f1f5f9">Hace seguimiento por sede o área y revisa los consolidados.</span></div>
+<div style="background:#1a2235;border:1px solid rgba(255,255,255,.08);border-radius:2px;padding:28px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:2px;color:#3b82f6">DOCENTE</span><span style="font-size:15px;line-height:1.6;color:#f1f5f9">Registra las notas de sus asignaturas y cursos asignados.</span></div>
+<div style="background:#1a2235;border:1px solid rgba(255,255,255,.08);border-radius:2px;padding:28px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:2px;color:#10b981">SECRETARÍA</span><span style="font-size:15px;line-height:1.6;color:#f1f5f9">Gestiona la matrícula y emite los boletines del periodo.</span></div>
+</div>
+</div>
+<div class="px" style="padding:96px 64px;background:#111827;display:flex;flex-direction:column;gap:40px">
+<div class="wrap-row" style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:3px;color:#10b981;text-transform:uppercase">Seguridad</div><h2 class="h-sec" style="font-size:40px;font-weight:800;letter-spacing:-1.5px;line-height:1.08;max-width:560px">Datos de menores, protegidos por diseño.</h2></div>
+<p style="font-size:16px;color:#94a3b8;line-height:1.6;max-width:440px">Tratamiento de datos personales conforme a la Ley 1581 de 2012, con aislamiento lógico entre instituciones.</p>
+</div>
+<div class="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<div style="background:#1a2235;border:1px solid rgba(255,255,255,.08);padding:28px;border-radius:2px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#10b981;letter-spacing:2px">01</span><span style="font-weight:700;font-size:17px">Esquema por colegio</span><span style="color:#94a3b8;font-size:14px;line-height:1.6">Cada institución vive en su propio esquema de PostgreSQL.</span></div>
+<div style="background:#1a2235;border:1px solid rgba(255,255,255,.08);padding:28px;border-radius:2px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#10b981;letter-spacing:2px">02</span><span style="font-weight:700;font-size:17px">Control por roles</span><span style="color:#94a3b8;font-size:14px;line-height:1.6">Cada usuario ve solo lo que su rol permite.</span></div>
+<div style="background:#1a2235;border:1px solid rgba(255,255,255,.08);padding:28px;border-radius:2px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#10b981;letter-spacing:2px">03</span><span style="font-weight:700;font-size:17px">Cifrado</span><span style="color:#94a3b8;font-size:14px;line-height:1.6">Datos y respaldos cifrados.</span></div>
+<div style="background:#1a2235;border:1px solid rgba(255,255,255,.08);padding:28px;border-radius:2px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'Roboto Mono',monospace;font-size:12px;color:#10b981;letter-spacing:2px">04</span><span style="font-weight:700;font-size:17px">Respaldos diarios</span><span style="color:#94a3b8;font-size:14px;line-height:1.6">Copias fuera del VPS y restauración probada.</span></div>
+</div>
+</div>
+<div class="px" style="padding:112px 64px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+<div style="font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:3px;color:#10b981;text-transform:uppercase">Colegio piloto</div>
+<h2 class="h-sec" style="font-size:52px;font-weight:800;letter-spacing:-2px;line-height:1.05;max-width:880px;text-wrap:balance">Construido sprint a sprint con la I.E. INCODELCA, en Corinto, Cauca.</h2>
+<p style="font-size:17px;color:#94a3b8;line-height:1.7;max-width:620px">Sprints de dos semanas y una revisión con el colegio al final de cada uno, porque las reglas de evaluación de cada institución solo se precisan con el uso real.</p>
+<div class="h1" style="background:#3b82f6;color:#fff;font-size:15px;font-weight:600;padding:14px 26px;border-radius:2px;margin-top:12px;cursor:pointer">Sumar mi colegio</div>
+</div>
+<div class="px foot" style="padding:28px 64px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:13px;color:#94a3b8"><span>EduCore · Yoiner Duran Rios, Ivan Ramiro Castro Rojas, Ronald Fabian Garcia Quicazaque</span><span>Política de tratamiento de datos · Ley 1581 de 2012</span></div>
+</div>
+</body>
+</html>

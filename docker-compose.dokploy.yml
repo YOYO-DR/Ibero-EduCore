@@ -1,0 +1,188 @@
+volumes:
+  production_traefik: {}
+  production_django_media: {}
+  production_django_logs: {}
+
+services:
+  django_educore: &django
+    build:
+      context: ./backend
+      dockerfile: ./compose/production/django/Dockerfile
+    image: educore_production_django
+    volumes:
+      - production_django_media:/app/apps/media
+      - production_django_logs:/app/logs
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    command: /start
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+        limits:
+          cpus: ${DJANGO_CPU:-1}
+          memory: ${DJANGO_RAM:-1g}
+    networks:
+      - dokploy-network
+      - default
+
+  pgbouncer_educore:
+    build:
+      context: ./backend
+      dockerfile: ./compose/production/pgbouncer/Dockerfile
+    image: educore_production_pgbouncer
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    networks:
+      - dokploy-network
+      - default
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.1'
+          memory: 123M
+        limits:
+          cpus: ${PGBOUNCER_CPU:-1}
+          memory: ${PGBOUNCER_RAM:-1g}
+
+  redis_educore:
+    image: docker.io/redis:7.2
+    networks:
+      - dokploy-network
+      - default
+
+  traefik_educore:
+    build:
+      context: ./backend
+      dockerfile: ./compose/production/traefik/Dockerfile
+    image: educore_production_traefik
+    depends_on:
+      - django_educore
+    volumes:
+      - production_traefik:/etc/traefik/acme
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    networks:
+      - dokploy-network
+      - default
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.1'
+          memory: 123M
+        limits:
+          cpus: ${TRAEFIK_CPU:-1}
+          memory: ${TRAEFIK_RAM:-1g}
+
+  celeryworker_educore:
+    <<: *django
+    image: educore_production_celeryworker
+    command: /start-celeryworker
+    ports: []
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    depends_on:
+      - pgbouncer_educore
+      - redis_educore
+    deploy:
+      replicas: ${CANT_WORKERS_CELERY:-2}
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+        limits:
+          cpus: ${CELERYWORKER_CPU:-1}
+          memory: ${CELERYWORKER_RAM:-1g}
+    networks:
+      - dokploy-network
+      - default
+
+  celerybeat_educore:
+    <<: *django
+    image: educore_production_celerybeat
+    restart: unless-stopped
+    volumes:
+      - production_django_media:/app/apps/media
+    command: /start-celerybeat
+    env_file:
+      - ./.env
+    depends_on:
+      - pgbouncer_educore
+      - redis_educore
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+        limits:
+          cpus: ${CELERYBEAT_CPU:-1}
+          memory: ${CELERYBEAT_RAM:-1g}
+    networks:
+      - dokploy-network
+      - default
+
+  flower_educore:
+    <<: *django
+    image: educore_production_flower
+    command: /start-flower
+    env_file:
+      - ./.env
+    depends_on:
+      - celeryworker_educore
+    networks:
+      - dokploy-network
+      - default
+
+  nginx_educore:
+    build:
+      context: ./backend
+      dockerfile: ./compose/production/nginx/Dockerfile
+    image: educore_production_nginx
+    depends_on:
+      - django_educore
+    volumes:
+      - production_django_media:/usr/share/nginx/media:ro
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.1'
+          memory: 123M
+        limits:
+          cpus: ${NGINX_CPU:-1}
+          memory: ${NGINX_RAM:-1g}
+    networks:
+      - dokploy-network
+      - default
+
+  frontend_educore:
+    build:
+      context: ./frontend-A2
+      dockerfile: ./compose/production/Dockerfile
+      args:
+        - VITE_API_URL=${VITE_API_URL}
+    image: educore_production_frontend
+    restart: unless-stopped
+    # depends_on:
+    #   - django_educore
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+        limits:
+          cpus: ${FRONTEND_CPU:-1}
+          memory: ${FRONTEND_RAM:-1g}
+    networks:
+      - dokploy-network
+      - default
+
+networks:
+  dokploy-network:
+    external: true
+

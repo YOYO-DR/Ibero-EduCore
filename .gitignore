@@ -1,0 +1,12 @@
+# Variables de entorno unificadas de la raíz.
+# Los `.example` SÍ se versionan como plantilla; los archivos reales no.
+.env
+.env.local
+.env.prod
+
+# Plantillas de variables — siempre visibles
+!.env.*.example
+
+# Capturas de validación (Playwright) — van en .playwright-mcp/, no al repo
+/.playwright-mcp/
+/*.png

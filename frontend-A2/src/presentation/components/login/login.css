@@ -1,0 +1,265 @@
+/* Login A2 — derivado de los tokens de EduCore-2A / EduCoreA2Admin.
+   Izquierda: hero navy con titular Inter 800 y tramo azul.
+   Derecha: tarjeta #162033 con borde #2A3650 y radio 8px.
+   Tokens: src/index.css. */
+
+.log-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  min-height: 100vh;
+  text-align: left;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ── Panel de marca ──────────────────────────────────────── */
+.log-brand {
+  background: var(--bg);
+  border-right: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 48px clamp(28px, 5vw, 72px);
+  min-width: 0;
+}
+
+.log-logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.log-logo-accent {
+  color: var(--blue);
+}
+
+.log-logo-sub {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.log-eyebrow {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--text-mute);
+  text-transform: uppercase;
+}
+
+.log-headline {
+  font-size: clamp(38px, 4.4vw, 64px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -2.5px;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+.log-headline-accent {
+  color: var(--blue);
+}
+
+.log-stat {
+  margin-top: auto;
+  border-top: 1px solid var(--border-soft);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.log-stat-value {
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -3px;
+  color: var(--red);
+}
+
+.log-stat-text {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-mute);
+  max-width: 420px;
+}
+
+.log-stat-note {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ── Formulario ──────────────────────────────────────────── */
+.log-form-side {
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px clamp(24px, 4vw, 64px);
+  min-width: 0;
+}
+
+.log-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px clamp(22px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.log-form-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.log-form-sub {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-top: -8px;
+}
+
+.log-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.log-label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.log-input {
+  background: var(--input);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+  width: 100%;
+}
+
+.log-input::placeholder {
+  color: var(--text-dim);
+}
+
+.log-input:focus {
+  outline: 1px solid var(--sky);
+  outline-offset: 0;
+  border-color: var(--sky);
+}
+
+.log-submit {
+  background: var(--sky);
+  border: 1px solid var(--sky);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.log-submit:hover {
+  background: var(--sky-deep);
+  border-color: var(--sky-deep);
+}
+
+.log-back {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--text-mute);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.log-back:hover {
+  color: var(--sky-soft);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .log-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .log-brand {
+    gap: 18px;
+    padding: 28px 24px 32px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    min-height: 0;
+  }
+
+  .log-headline {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+
+  .log-stat {
+    margin-top: 8px;
+    padding-top: 18px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .log-stat-value {
+    font-size: 44px;
+    letter-spacing: -2px;
+  }
+
+  .log-stat-text {
+    font-size: 15px;
+  }
+
+  .log-stat-note {
+    flex-basis: 100%;
+  }
+
+  .log-form-side {
+    padding: 32px 24px 48px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .log-card {
+    padding: 24px 18px;
+  }
+
+  .log-form-title {
+    font-size: 20px;
+  }
+}
